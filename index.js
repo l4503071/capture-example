@@ -2,18 +2,6 @@ const Koa = require('koa');
 const cors = require('koa2-cors');
 const capture = require('@sunshine_bit/capture');
 
-// function createImage(width, height, fColor, bColor) {
-//   const canvas = createCanvas(width, height);
-//   const ctx = canvas.getContext('2d');
-//   ctx.fillStyle = fColor;
-//   ctx.fillRect(0, 0, width, height);
-//   ctx.fillStyle = bColor;
-//   ctx.font = '24px "Arial Bold"';
-//   ctx.textAlign = 'center';
-//   ctx.fillText(`${width} X ${height}`, width / 2, height / 2);
-//   return canvas.createPNGStream();
-// }
-
 const app = new Koa();
 app.use(cors());
 app.use(async (ctx, next) => {
@@ -31,12 +19,6 @@ app.use(async (ctx, next) => {
     encoding, 
   } = ctx.query;
 
-  console.log(url,
-    width,
-    height,
-    deviceScaleFactor,
-    fileName,
-    encoding)
   const res = await capture.capture({
     url,
     deviceScaleFactor,
